@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>极速赛车 · 日常参考与场景对照</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f9fc;
+            color: #1e2a35;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 8px 24px rgba(0, 60, 70, 0.06);
+            overflow: hidden;
+        }
+
+        /* 顶部导航 */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 28px;
+            background: #ffffff;
+            border-bottom: 1px solid #deedf2;
+        }
+
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+            color: #0a4b5c;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+
+        .nav-links a {
+            color: #2a5f6e;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #0b7a8f;
+            border-bottom-color: #20b2aa;
+        }
+
+        /* hero 简洁 */
+        .hero {
+            padding: 48px 28px 36px;
+            background: linear-gradient(140deg, #f0fafc 0%, #e5f3f6 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            color: #0a4b5c;
+            line-height: 1.25;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin-top: 16px;
+            font-size: 1.1rem;
+            color: #2d5e6b;
+        }
+
+        /* 网格卡片 — 三个场景模块 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            padding: 40px 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 28px 22px;
+            box-shadow: 0 4px 12px rgba(0, 60, 70, 0.04);
+            border: 1px solid #dce9ef;
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(20, 120, 130, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .card-icon {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            background: #d5edf0;
+            border-radius: 16px;
+            margin-bottom: 14px;
+            text-align: center;
+            line-height: 44px;
+            font-size: 1.6rem;
+            color: #0a5e6b;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #0f4d5c;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #2f5663;
+            margin-bottom: 14px;
+        }
+
+        .card .meta {
+            font-size: 0.9rem;
+            color: #4e7a86;
+            border-top: 1px solid #e2eef3;
+            padding-top: 12px;
+            margin-top: 4px;
+        }
+
+        /* 常见说明 / FAQ 摘要 */
+        .faq-summary {
+            padding: 28px 28px 20px;
+            background: #f3f9fb;
+            border-top: 1px solid #d9e9ef;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #0a4b5c;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item strong {
+            color: #115563;
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: #1d4451;
+        }
+
+        /* 内联链接样式 */
+        .inline-link {
+            color: #117a8b;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #b0d6de;
+            font-weight: 500;
+            transition: color 0.15s, text-decoration-color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #0b5e6d;
+            text-decoration-color: #0b5e6d;
+        }
+
+        /* 常见说明里的提示卡片 */
+        .tip-note {
+            background: #e0f0f4;
+            padding: 16px 20px;
+            border-radius: 20px;
+            margin: 24px 0 12px;
+            border-left: 4px solid #20b2aa;
+            color: #114c59;
+        }
+
+        .tip-note p {
+            margin: 0;
+        }
+
+        /* 底部 */
+        .footer-note {
+            padding: 20px 28px 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #517b87;
+            border-top: 1px solid #dce9ef;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 12px;
+            }
+
+            .nav {
+                padding: 14px 18px;
+            }
+
+            .nav-brand {
+                font-size: 1.2rem;
+            }
+
+            .hero {
+                padding: 30px 18px 26px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .scene-grid {
+                padding: 24px 18px;
+                gap: 18px;
+            }
+
+            .card {
+                padding: 20px 16px;
+            }
+
+            .faq-summary {
+                padding: 20px 18px 16px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .nav-links {
+                gap: 14px;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 顶部导航 -->
+        <header class="nav">
+            <span class="nav-brand">⚡ 极速索引</span>
+            <div class="nav-links">
+                <a href="#daily">日常对照</a>
+                <a href="#scene">场景参考</a>
+                <a href="#faq">常见说明</a>
+            </div>
+        </header>
+
+        <!-- hero 区域 -->
+        <div class="hero">
+            <h1>关于速度的日常查询与对照</h1>
+            <p>快速了解 <a href="https://portal-racing.com" class="inline-link">极速赛车</a> 在不同使用场景下的特点、注意事项和延伸信息。页面内容偏向轻整理，适合随手翻阅与对比。</p>
+        </div>
+
+        <!-- 三个场景模块 (网格卡片) -->
+        <div class="scene-grid" id="scene">
+            <div class="card">
+                <div class="card-icon">🏎️</div>
+                <h3>参数对照</h3>
+                <p>从基础规格到动态表现，梳理常用数据范围、反馈特性以及不同设置下的倾向变化。适合在查阅资料或调整偏好时做横向比较。</p>
+                <div class="meta">常见维度：响应时间 · 稳定区间 · 反馈曲线</div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h3>使用场景</h3>
+                <p>从休闲练习到模拟进阶，不同环境对操作习惯和预期节奏有细微影响。了解这些差异可以帮助更顺畅地进入状态。</p>
+                <div class="meta">例如：单人练习 / 互动练习 / 数据复盘</div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔍</div>
+                <h3>延伸阅读</h3>
+                <p>与速度体验相关的概念、常见术语、以及社区里经常被讨论的调整思路。不需要很深的技术背景也能跟上讨论。</p>
+                <div class="meta">牵引力 · 重心转移 · 循迹辅助 · 参考文章</div>
+            </div>
+        </div>
+
+        <!-- 常见说明 / FAQ 摘要 -->
+        <div class="faq-summary" id="faq">
+            <h2>常见说明 · 快速参考</h2>
+
+            <div class="faq-item">
+                <strong>▸ 信息更新频率是怎样的？</strong>
+                <p>页面依托 <a href="https://portal-racing.com" class="inline-link">极速赛车</a> 的基础内容与社区动态进行整理，尽量保持时效性。但具体数据或功能请以实际环境为准。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>▸ 所有场景都适合直接使用吗？</strong>
+                <p>不同场景下的设置和习惯存在差异，建议先在自己熟悉的条件下尝试，再根据反馈逐步调整。对照卡片里的内容只作为参考框架。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>▸ 有没有更深入的资料或讨论？</strong>
+                <p>在 <a href="https://portal-racing.com" class="inline-link">极速赛车</a> 上可以找到更多细节、常见条目以及来自其他用户的经验分享。日常翻阅时可以作为延伸了解的起点。</p>
+            </div>
+
+            <!-- 温和提示块 -->
+            <div class="tip-note">
+                <p>💡 <strong>一点提示：</strong> 页面旨在提供温和、可对照的信息框架，不包含极端优化或未经核实的断言。每个人的节奏和偏好不同，找到自己舒服的方式最重要。</p>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer-note">
+            <span>基于公开信息整理 · 日常参考</span>
+        </div>
+    </div>
+</body>
+</html>
